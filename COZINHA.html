@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Controle de Estoque - Preenchimento</title>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 30px; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    input[type=number] { width: 70px; }
+    .btn { background-color: #389e42; color: #fff; padding: 10px 20px; border: none; cursor: pointer; font-size: 16px; margin-top: 10px; }
+    .btn:hover { background-color: #29722e; }
+  </style>
+</head>
+<body>
+  <h2>Controle de Estoque - Preenchimento</h2>
+  <form id="estoqueForm">
+    <table>
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Local</th>
+          <th>Quantidade</th>
+          <th>Unidade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Creme de leite</td><td>COZINHA</td><td><input type="number" name="qtd_1" min="0"></td><td>caixa</td></tr>
+        <tr><td>Leite condensado semidesnatado</td><td>COZINHA</td><td><input type="number" name="qtd_2" min="0"></td><td>lata</td></tr>
+        <tr><td>Chocolate em pó 50%</td><td>COZINHA</td><td><input type="number" name="qtd_3" min="0"></td><td>kg</td></tr>
+        <tr><td>Cream cheese</td><td>COZINHA</td><td><input type="number" name="qtd_4" min="0"></td><td>kg</td></tr>
+        <tr><td>Chocolate branco nobre - moedas</td><td>COZINHA</td><td><input type="number" name="qtd_5" min="0"></td><td>kg</td></tr>
+        <tr><td>Chocolate meio amargo nobre - gotas</td><td>COZINHA</td><td><input type="number" name="qtd_6" min="0"></td><td>kg</td></tr>
+        <tr><td>Chocolate blend cobertura - gotas</td><td>COZINHA</td><td><input type="number" name="qtd_7" min="0"></td><td>kg</td></tr>
+        <tr><td>Desmoldante</td><td>COZINHA</td><td><input type="number" name="qtd_8" min="0"></td><td>lata</td></tr>
+        <tr><td>Confeito chocolate meio amargo - granulado</td><td>COZINHA</td><td><input type="number" name="qtd_9" min="0"></td><td>kg</td></tr>
+        <tr><td>Limão Taiti</td><td>COZINHA</td><td><input type="number" name="qtd_10" min="0"></td><td>kg</td></tr>
+        <tr><td>Bombril</td><td>COZINHA</td><td><input type="number" name="qtd_11" min="0"></td><td>unid.</td></tr>
+        <tr><td>Detergente líquido neutro</td><td>COZINHA</td><td><input type="number" name="qtd_12" min="0"></td><td>unid.</td></tr>
+        <tr><td>Açúcar refinado</td><td>COZINHA</td><td><input type="number" name="qtd_13" min="0"></td><td>kg</td></tr>
+        <tr><td>Farinha de trigo</td><td>COZINHA</td><td><input type="number" name="qtd_14" min="0"></td><td>kg</td></tr>
+        <tr><td>Açúcar cristal</td><td>COZINHA</td><td><input type="number" name="qtd_15" min="0"></td><td>kg</td></tr>
+        <tr><td>Açúcar de confeiteiro</td><td>COZINHA</td><td><input type="number" name="qtd_16" min="0"></td><td>kg</td></tr>
+        <tr><td>Açúcar mascavo</td><td>COZINHA</td><td><input type="number" name="qtd_17" min="0"></td><td>kg</td></tr>
+        <tr><td>Gelatina em pó - sem sabor</td><td>COZINHA</td><td><input type="number" name="qtd_18" min="0"></td><td>kg</td></tr>
+        <tr><td>Leite integral</td><td>COZINHA</td><td><input type="number" name="qtd_19" min="0"></td><td>kg</td></tr>
+        <tr><td>Leite condensado Moça</td><td>COZINHA</td><td><input type="number" name="qtd_20" min="0"></td><td>lata</td></tr>
+        <tr><td>Amido de milho</td><td>COZINHA</td><td><input type="number" name="qtd_21" min="0"></td><td>kg</td></tr>
+        <tr><td>Manteiga sem sal - tablete</td><td>COZINHA</td><td><input type="number" name="qtd_22" min="0"></td><td>kg</td></tr>
+        <tr><td>Óleo de soja</td><td>COZINHA</td><td><input type="number" name="qtd_23" min="0"></td><td>l</td></tr>
+        <tr><td>Detergente líquido alcalino</td><td>COZINHA</td><td><input type="number" name="qtd_24" min="0"></td><td>unid.</td></tr>
+        <tr><td>Cacau 100%</td><td>COZINHA</td><td><input type="number" name="qtd_25" min="0"></td><td>kg</td></tr>
+        <tr><td>Óleo de coco</td><td>COZINHA</td><td><input type="number" name="qtd_26" min="0"></td><td>kg</td></tr>
+        <tr><td>Farinha tipo 00</td><td>COZINHA</td><td><input type="number" name="qtd_27" min="0"></td><td>kg</td></tr>
+        <tr><td>Glucose de milho</td><td>COZINHA</td><td><input type="number" name="qtd_28" min="0"></td><td>kg</td></tr>
+        <tr><td>Nestilly</td><td>COZINHA</td><td><input type="number" name="qtd_29" min="0"></td><td>kg</td></tr>
+        <tr><td>Molho de tomate</td><td>COZINHA</td><td><input type="number" name="qtd_30" min="0"></td><td>kg</td></tr>
+        <tr><td>Margarina - tablete</td><td>COZINHA</td><td><input type="number" name="qtd_31" min="0"></td><td>kg</td></tr>
+        <tr><td>Requeijão - bisnaga</td><td>COZINHA</td><td><input type="number" name="qtd_32" min="0"></td><td>kg</td></tr>
+        <tr><td>Nutella</td><td>COZINHA</td><td><input type="number" name="qtd_33" min="0"></td><td>kg</td></tr>
+        <tr><td>Água sanitária</td><td>COZINHA</td><td><input type="number" name="qtd_34" min="0"></td><td>unid.</td></tr>
+        <tr><td>Desinfetante</td><td>COZINHA</td><td><input type="number" name="qtd_35" min="0"></td><td>unid.</td></tr>
+        <tr><td>Mirtilo congelado</td><td>COZINHA</td><td><input type="number" name="qtd_36" min="0"></td><td>kg</td></tr>
+        <tr><td>Framboesa congelada</td><td>COZINHA</td><td><input type="number" name="qtd_37" min="0"></td><td>kg</td></tr>
+        <tr><td>Bolacha maisena</td><td>COZINHA</td><td><input type="number" name="qtd_38" min="0"></td><td>pacote</td></tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn" onclick="baixarExcel()">Baixar Excel</button>
+  </form>
+
+  <script>
+    function baixarExcel() {
+      // Cabeçalho
+      const headers = ["Produto", "Local", "Quantidade", "Unidade"];
+      // Dados
+      const dados = [
+        ["Creme de leite", "COZINHA", getVal('qtd_1'), "caixa"],
+        ["Leite condensado semidesnatado", "COZINHA", getVal('qtd_2'), "lata"],
+        ["Chocolate em pó 50%", "COZINHA", getVal('qtd_3'), "kg"],
+        ["Cream cheese", "COZINHA", getVal('qtd_4'), "kg"],
+        ["Chocolate branco nobre - moedas", "COZINHA", getVal('qtd_5'), "kg"],
+        ["Chocolate meio amargo nobre - gotas", "COZINHA", getVal('qtd_6'), "kg"],
+        ["Chocolate blend cobertura - gotas", "COZINHA", getVal('qtd_7'), "kg"],
+        ["Desmoldante", "COZINHA", getVal('qtd_8'), "lata"],
+        ["Confeito chocolate meio amargo - granulado", "COZINHA", getVal('qtd_9'), "kg"],
+        ["Limão Taiti", "COZINHA", getVal('qtd_10'), "kg"],
+        ["Bombril", "COZINHA", getVal('qtd_11'), "unid."],
+        ["Detergente líquido neutro", "COZINHA", getVal('qtd_12'), "unid."],
+        ["Açúcar refinado", "COZINHA", getVal('qtd_13'), "kg"],
+        ["Farinha de trigo", "COZINHA", getVal('qtd_14'), "kg"],
+        ["Açúcar cristal", "COZINHA", getVal('qtd_15'), "kg"],
+        ["Açúcar de confeiteiro", "COZINHA", getVal('qtd_16'), "kg"],
+        ["Açúcar mascavo", "COZINHA", getVal('qtd_17'), "kg"],
+        ["Gelatina em pó - sem sabor", "COZINHA", getVal('qtd_18'), "kg"],
+        ["Leite integral", "COZINHA", getVal('qtd_19'), "kg"],
+        ["Leite condensado Moça", "COZINHA", getVal('qtd_20'), "lata"],
+        ["Amido de milho", "COZINHA", getVal('qtd_21'), "kg"],
+        ["Manteiga sem sal - tablete", "COZINHA", getVal('qtd_22'), "kg"],
+        ["Óleo de soja", "COZINHA", getVal('qtd_23'), "l"],
+        ["Detergente líquido alcalino", "COZINHA", getVal('qtd_24'), "unid."],
+        ["Cacau 100%", "COZINHA", getVal('qtd_25'), "kg"],
+        ["Óleo de coco", "COZINHA", getVal('qtd_26'), "kg"],
+        ["Farinha tipo 00", "COZINHA", getVal('qtd_27'), "kg"],
+        ["Glucose de milho", "COZINHA", getVal('qtd_28'), "kg"],
+        ["Nestilly", "COZINHA", getVal('qtd_29'), "kg"],
+        ["Molho de tomate", "COZINHA", getVal('qtd_30'), "kg"],
+        ["Margarina - tablete", "COZINHA", getVal('qtd_31'), "kg"],
+        ["Requeijão - bisnaga", "COZINHA", getVal('qtd_32'), "kg"],
+        ["Nutella", "COZINHA", getVal('qtd_33'), "kg"],
+        ["Água sanitária", "COZINHA", getVal('qtd_34'), "unid."],
+        ["Desinfetante", "COZINHA", getVal('qtd_35'), "unid."],
+        ["Mirtilo congelado", "COZINHA", getVal('qtd_36'), "kg"],
+        ["Framboesa congelada", "COZINHA", getVal('qtd_37'), "kg"],
+        ["Bolacha maisena", "COZINHA", getVal('qtd_38'), "pacote"]
+      ];
+      // Monta planilha
+      const wsData = [headers, ...dados];
+      const ws = XLSX.utils.aoa_to_sheet(wsData);
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "Estoque");
+      XLSX.writeFile(wb, "estoque_atualizado.xlsx");
+    }
+    function getVal(nome) {
+      return document.querySelector(`[name=${nome}]`).value || "";
+    }
+  </script>
+</body>
+</html>
